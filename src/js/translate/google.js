@@ -152,7 +152,7 @@ function googleTranslate() {
             this.langMapInvert = invertObject(this.langMap)
             let str = localStorage.getItem('googleToken')
             if (str) this.token = JSON.parse(str)
-            onHeadersReceivedAddListener(onRemoveCross, {urls: ["*://translate.google.cn/translate_tts*"]})
+            onHeadersReceivedAddListener(onRemoveCross, {urls: ["*://translate.google.com/translate_tts*"]})
             return this
         },
         setToken(options) {
@@ -161,7 +161,7 @@ function googleTranslate() {
         },
         getToken() {
             return new Promise((resolve, reject) => {
-                httpGet('https://translate.google.cn/translate_a/element.js', 'text').then(r => {
+                httpGet('https://translate.google.com/translate_a/element.js', 'text').then(r => {
                     // let arr = r.match(/tkk:'(\d+\.\d+)'/)
                     let arr = r.match(/_ctkk='(\d+\.\d+)'/)
                     if (!arr) return reject('google tkk empty!')
@@ -175,7 +175,7 @@ function googleTranslate() {
         },
         getTokenNew() {
             return new Promise((resolve, reject) => {
-                httpGet('https://translate.google.cn', 'text').then(r => {
+                httpGet('https://translate.google.com', 'text').then(r => {
                     let arr1 = r.match(/"FdrFJe":"(.*?)"/)
                     if (!arr1) return reject('google tk1 empty!')
                     let arr2 = r.match(/"cfb2h":"(.*?)"/)
@@ -194,13 +194,13 @@ function googleTranslate() {
         },
         trans(q, srcLan, tarLan) {
             srcLan = this.langMap[srcLan] || 'auto'
-            tarLan = this.langMap[tarLan] || 'zh-CN'
+            tarLan = this.langMap[tarLan] || 'zh-TW'
             return new Promise(async (resolve, reject) => {
                 if (q.length > 1000) return reject('The text is too large!')
                 if (!this.token.tkk) return reject('google tkk empty!')
                 let tk = this.sign(q, this.token.tkk)
 
-                // let url = `https://translate.google.cn/translate_a/single?client=webapp&sl=${srcLan}&tl=${tarLan}&hl=${navigator.language}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=sos&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=1&tk=${tk}&q=${encodeURI(q)}`
+                // let url = `https://translate.google.com/translate_a/single?client=webapp&sl=${srcLan}&tl=${tarLan}&hl=${navigator.language}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=sos&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=1&tk=${tk}&q=${encodeURI(q)}`
                 let url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${srcLan}&tl=${tarLan}&dt=at&dt=bd&dt=ex&dt=ld&dt=md&dt=qca&dt=rw&dt=rm&dt=sos&dt=ss&dt=t&otf=1&ssel=0&tsel=0&kc=1&&q=${encodeURI(q)}&tk=${tk}`
                 await httpGet(url, 'json').then(r => {
                     if (r) {
@@ -215,7 +215,7 @@ function googleTranslate() {
         },
         transNew(q, srcLan, tarLan) {
             srcLan = this.langMap[srcLan] || 'auto'
-            tarLan = this.langMap[tarLan] || 'zh-CN'
+            tarLan = this.langMap[tarLan] || 'zh-TW'
             return new Promise(async (resolve, reject) => {
                 if (q.length > 1000) return reject('The text is too large!')
 
@@ -228,7 +228,7 @@ function googleTranslate() {
                 let rid = Math.floor(1e3 + 9e3 * Math.random())
                 this.addListenerRequest()
                 httpPost({
-                    url: `https://translate.google.cn/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&f.sid=${t.tk1}&bl=${t.tk2}&hl=zh-CN&soc-app=1&soc-platform=1&soc-device=1&_reqid=${rid}&rt=c`,
+                    url: `https://translate.google.com/_/TranslateWebserverUi/data/batchexecute?rpcids=MkEWBc&f.sid=${t.tk1}&bl=${t.tk2}&hl=zh-TW&soc-app=1&soc-platform=1&soc-device=1&_reqid=${rid}&rt=c`,
                     body: p.toString(),
                     responseType: 'text'
                 }).then(r => {
@@ -340,7 +340,7 @@ function googleTranslate() {
         },
         addListenerRequest() {
             onBeforeSendHeadersAddListener(this.onChangeHeaders,
-                {urls: ['*://translate.google.cn/*'], types: ['xmlhttprequest']})
+                {urls: ['*://translate.google.com/*'], types: ['xmlhttprequest']})
         },
         removeListenerRequest() {
             onBeforeSendHeadersRemoveListener(this.onChangeHeaders)
@@ -361,9 +361,9 @@ referer: https://translate.google.com`
                 let getUrl = (s) => {
                     // 2021.6.4 google TTS 官方接口调整后，声音变的比以前难听多了，耳朵有点难受。
                     // let tk = this.sign(s, this.token.tkk)
-                    // return `https://translate.google.cn/translate_tts?ie=UTF-8&q=${encodeURI(s)}&tl=${lan}&total=1&idx=0&textlen=${s.length}&tk=${tk}&client=webapp&prev=input`
+                    // return `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURI(s)}&tl=${lan}&total=1&idx=0&textlen=${s.length}&tk=${tk}&client=webapp&prev=input`
                     return `https://translate.googleapis.com/translate_tts?client=gtx&tl=${lan}&ie=UTF-8&q=${encodeURI(s)}`
-                    // return `https://translate.google.cn/translate_tts?ie=UTF-8&total=1&idx=0&client=tw-ob&tl=${lan}&q=${encodeURI(s)}&textlen=${s.length}`
+                    // return `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&client=tw-ob&tl=${lan}&q=${encodeURI(s)}&textlen=${s.length}`
                 }
                 let r = []
                 let arr = sliceStr(q, 128)
@@ -375,8 +375,8 @@ referer: https://translate.google.com`
         },
         link(q, srcLan, tarLan) {
             srcLan = this.langMap[srcLan] || 'auto'
-            tarLan = this.langMap[tarLan] || 'zh-CN'
-            return `https://translate.google.cn/?sl=${srcLan}&tl=${tarLan}&text=${encodeURI(q)}&op=translate`
+            tarLan = this.langMap[tarLan] || 'zh-TW'
+            return `https://translate.google.com/?sl=${srcLan}&tl=${tarLan}&text=${encodeURI(q)}&op=translate`
         },
     }
 }
