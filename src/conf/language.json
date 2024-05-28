@@ -1,114 +1,114 @@
 {
   "auto": {
-    "zhName": "自动检测",
+    "zhName": "自動檢測",
     "enName": "Auto Detect"
   },
   "zh": {
-    "zhName": "中文(简体)",
+    "zhName": "中文(簡體)",
     "enName": "Chinese"
   },
   "en": {
-    "zhName": "英语",
+    "zhName": "英語",
     "enName": "English"
   },
   "jp": {
-    "zhName": "日语",
+    "zhName": "日語",
     "enName": "Japanese"
   },
   "th": {
-    "zhName": "泰语",
+    "zhName": "泰語",
     "enName": "Thai"
   },
   "spa": {
-    "zhName": "西班牙语",
+    "zhName": "西班牙語",
     "enName": "Spanish"
   },
   "ara": {
-    "zhName": "阿拉伯语",
+    "zhName": "阿拉伯語",
     "enName": "Arabic"
   },
   "fra": {
-    "zhName": "法语",
+    "zhName": "法語",
     "enName": "French"
   },
   "kor": {
-    "zhName": "韩语",
+    "zhName": "韓語",
     "enName": "Korean"
   },
   "ru": {
-    "zhName": "俄语",
+    "zhName": "俄語",
     "enName": "Russian"
   },
   "de": {
-    "zhName": "德语",
+    "zhName": "德語",
     "enName": "German"
   },
   "pt": {
-    "zhName": "葡萄牙语",
+    "zhName": "葡萄牙語",
     "enName": "Portuguese"
   },
   "it": {
-    "zhName": "意大利语",
+    "zhName": "義大利語",
     "enName": "Italian"
   },
   "el": {
-    "zhName": "希腊语",
+    "zhName": "希臘語",
     "enName": "Greek"
   },
   "nl": {
-    "zhName": "荷兰语",
+    "zhName": "荷蘭語",
     "enName": "Dutch"
   },
   "pl": {
-    "zhName": "波兰语",
+    "zhName": "波蘭語",
     "enName": "Polish"
   },
   "fin": {
-    "zhName": "芬兰语",
+    "zhName": "芬蘭語",
     "enName": "Finnish"
   },
   "cs": {
-    "zhName": "捷克语",
+    "zhName": "捷克語",
     "enName": "Czech"
   },
   "bul": {
-    "zhName": "保加利亚语",
+    "zhName": "保加利亞語",
     "enName": "Bulgarian"
   },
   "dan": {
-    "zhName": "丹麦语",
+    "zhName": "丹麥語",
     "enName": "Danish"
   },
   "est": {
-    "zhName": "爱沙尼亚语",
+    "zhName": "愛沙尼亞語",
     "enName": "Estonian"
   },
   "hu": {
-    "zhName": "匈牙利语",
+    "zhName": "匈牙利語",
     "enName": "Hungarian"
   },
   "rom": {
-    "zhName": "罗马尼亚语",
+    "zhName": "羅馬尼亞語",
     "enName": "Romanian"
   },
   "slo": {
-    "zhName": "斯洛文尼亚语",
+    "zhName": "斯洛維尼亞語",
     "enName": "Slovenian"
   },
   "swe": {
-    "zhName": "瑞典语",
+    "zhName": "瑞典語",
     "enName": "Swedish"
   },
   "vie": {
-    "zhName": "越南语",
+    "zhName": "越南語",
     "enName": "Vietnamese"
   },
   "yue": {
-    "zhName": "中文(粤语)",
+    "zhName": "中文(粵語)",
     "enName": "Cantonese"
   },
   "cht": {
-    "zhName": "中文(繁体)",
+    "zhName": "中文(繁體)",
     "enName": "Traditional Chinese"
   },
   "wyw": {
@@ -116,703 +116,703 @@
     "enName": "Classical Chinese"
   },
   "afr": {
-    "zhName": "南非荷兰语",
+    "zhName": "南非荷蘭語",
     "enName": "Afrikaans"
   },
   "alb": {
-    "zhName": "阿尔巴尼亚语",
+    "zhName": "阿爾巴尼亞語",
     "enName": "Albanian"
   },
   "amh": {
-    "zhName": "阿姆哈拉语",
+    "zhName": "阿姆哈拉語",
     "enName": "Amharic"
   },
   "arm": {
-    "zhName": "亚美尼亚语",
+    "zhName": "亞美尼亞語",
     "enName": "Armenian"
   },
   "asm": {
-    "zhName": "阿萨姆语",
+    "zhName": "阿薩姆語",
     "enName": "Assamese"
   },
   "ast": {
-    "zhName": "阿斯图里亚斯语",
+    "zhName": "阿斯圖里亞斯語",
     "enName": "Asturian"
   },
   "aze": {
-    "zhName": "阿塞拜疆语",
+    "zhName": "亞塞拜然語",
     "enName": "Azerbaijani"
   },
   "baq": {
-    "zhName": "巴斯克语",
+    "zhName": "巴斯克語",
     "enName": "Basque"
   },
   "bel": {
-    "zhName": "白俄罗斯语",
+    "zhName": "白俄羅斯語",
     "enName": "Belarusian"
   },
   "ben": {
-    "zhName": "孟加拉语",
+    "zhName": "孟加拉語",
     "enName": "Bengali"
   },
   "bos": {
-    "zhName": "波斯尼亚语",
+    "zhName": "波士尼亞語",
     "enName": "Bosnian"
   },
   "bur": {
-    "zhName": "缅甸语",
+    "zhName": "緬甸語",
     "enName": "Burmese"
   },
   "cat": {
-    "zhName": "加泰罗尼亚语",
+    "zhName": "加泰隆尼亞語",
     "enName": "Catalan"
   },
   "ceb": {
-    "zhName": "宿务语",
+    "zhName": "宿務語",
     "enName": "Cebuano"
   },
   "hrv": {
-    "zhName": "克罗地亚语",
+    "zhName": "克羅埃西亞語",
     "enName": "Croatian"
   },
   "epo": {
-    "zhName": "世界语",
+    "zhName": "世界語",
     "enName": "Esperanto"
   },
   "fao": {
-    "zhName": "法罗语",
+    "zhName": "法羅語",
     "enName": "Faroese"
   },
   "fil": {
-    "zhName": "菲律宾语",
+    "zhName": "菲律賓語",
     "enName": "Filipino"
   },
   "glg": {
-    "zhName": "加利西亚语",
+    "zhName": "加利西亞語",
     "enName": "Galician"
   },
   "geo": {
-    "zhName": "格鲁吉亚语",
+    "zhName": "喬治亞語",
     "enName": "Georgian"
   },
   "guj": {
-    "zhName": "古吉拉特语",
+    "zhName": "古吉拉特語",
     "enName": "Gujarati"
   },
   "hau": {
-    "zhName": "豪萨语",
+    "zhName": "豪薩語",
     "enName": "Hausa"
   },
   "heb": {
-    "zhName": "希伯来语",
+    "zhName": "希伯來語",
     "enName": "Hebrew"
   },
   "hi": {
-    "zhName": "印地语",
+    "zhName": "印地語",
     "enName": "Hindi"
   },
   "ice": {
-    "zhName": "冰岛语",
+    "zhName": "冰島語",
     "enName": "Icelandic"
   },
   "ibo": {
-    "zhName": "伊博语",
+    "zhName": "伊博語",
     "enName": "Igbo"
   },
   "id": {
-    "zhName": "印尼语",
+    "zhName": "印尼語",
     "enName": "Indonesian"
   },
   "gle": {
-    "zhName": "爱尔兰语",
+    "zhName": "愛爾蘭語",
     "enName": "Irish"
   },
   "kan": {
-    "zhName": "卡纳达语",
+    "zhName": "卡納達語",
     "enName": "Kannada"
   },
   "kaz": {
-    "zhName": "哈萨克语",
+    "zhName": "哈薩克語",
     "enName": "Kazakh"
   },
   "kli": {
-    "zhName": "克林贡语",
+    "zhName": "克林貢語",
     "enName": "Klingon"
   },
   "kur": {
-    "zhName": "库尔德语",
+    "zhName": "庫爾德語",
     "enName": "Kurdish"
   },
   "lao": {
-    "zhName": "老挝语",
+    "zhName": "寮語",
     "enName": "Lao"
   },
   "lat": {
-    "zhName": "拉丁语",
+    "zhName": "拉丁語",
     "enName": "Latin"
   },
   "lav": {
-    "zhName": "拉脱维亚语",
+    "zhName": "拉脫維亞語",
     "enName": "Latvian"
   },
   "lit": {
-    "zhName": "立陶宛语",
+    "zhName": "立陶宛語",
     "enName": "Lithuanian"
   },
   "ltz": {
-    "zhName": "卢森堡语",
+    "zhName": "盧森堡語",
     "enName": "Luxembourgish"
   },
   "mac": {
-    "zhName": "马其顿语",
+    "zhName": "馬其頓語",
     "enName": "Macedonian"
   },
   "mg": {
-    "zhName": "马拉加斯语",
+    "zhName": "馬拉加斯語",
     "enName": "Malagasy"
   },
   "may": {
-    "zhName": "马来语",
+    "zhName": "馬來語",
     "enName": "Malay"
   },
   "mal": {
-    "zhName": "马拉雅拉姆语",
+    "zhName": "馬拉雅拉姆語",
     "enName": "Malayalam"
   },
   "mlt": {
-    "zhName": "马耳他语",
+    "zhName": "馬耳他語",
     "enName": "Maltese"
   },
   "mar": {
-    "zhName": "马拉地语",
+    "zhName": "馬拉地語",
     "enName": "Marathi"
   },
   "nep": {
-    "zhName": "尼泊尔语",
+    "zhName": "尼泊爾語",
     "enName": "Nepali"
   },
   "nno": {
-    "zhName": "新挪威语",
+    "zhName": "新挪威語",
     "enName": "Nynorsk"
   },
   "per": {
-    "zhName": "波斯语",
+    "zhName": "波斯語",
     "enName": "Persian"
   },
   "srd": {
-    "zhName": "萨丁尼亚语",
+    "zhName": "薩丁尼亞語",
     "enName": "Sardinian"
   },
   "srp": {
-    "zhName": "塞尔维亚语(拉丁文)",
+    "zhName": "塞爾維亞語(拉丁文)",
     "enName": "Serbian"
   },
   "sin": {
-    "zhName": "僧伽罗语",
+    "zhName": "僧伽羅語",
     "enName": "Sinhala"
   },
   "sk": {
-    "zhName": "斯洛伐克语",
+    "zhName": "斯洛伐克語",
     "enName": "Slovak"
   },
   "som": {
-    "zhName": "索马里语",
+    "zhName": "索馬利亞語",
     "enName": "Somali"
   },
   "swa": {
-    "zhName": "斯瓦希里语",
+    "zhName": "斯瓦希里語",
     "enName": "Swahili"
   },
   "tgl": {
-    "zhName": "他加禄语",
+    "zhName": "他加祿語",
     "enName": "Tagalog"
   },
   "tgk": {
-    "zhName": "塔吉克语",
+    "zhName": "塔吉克語",
     "enName": "Tajik"
   },
   "tam": {
-    "zhName": "泰米尔语",
+    "zhName": "泰米爾語",
     "enName": "Tamil"
   },
   "tat": {
-    "zhName": "鞑靼语",
+    "zhName": "韃靼語",
     "enName": "Tatar"
   },
   "tel": {
-    "zhName": "泰卢固语",
+    "zhName": "泰盧固語",
     "enName": "Telugu"
   },
   "tr": {
-    "zhName": "土耳其语",
+    "zhName": "土耳其語",
     "enName": "Turkish"
   },
   "tuk": {
-    "zhName": "土库曼语",
+    "zhName": "土庫曼語",
     "enName": "Turkmen"
   },
   "ukr": {
-    "zhName": "乌克兰语",
+    "zhName": "烏克蘭語",
     "enName": "Ukrainian"
   },
   "urd": {
-    "zhName": "乌尔都语",
+    "zhName": "烏爾都語",
     "enName": "Urdu"
   },
   "uzb": {
-    "zhName": "乌兹别克语",
+    "zhName": "烏茲別克語",
     "enName": "Uzbek"
   },
   "oci": {
-    "zhName": "奥克语",
+    "zhName": "奧克語",
     "enName": "Occitan"
   },
   "kir": {
-    "zhName": "吉尔吉斯语",
+    "zhName": "吉爾吉斯語",
     "enName": "Kyrgyz"
   },
   "pus": {
-    "zhName": "普什图语",
+    "zhName": "普什圖語",
     "enName": "Pashto"
   },
   "hkm": {
-    "zhName": "高棉语",
+    "zhName": "高棉語",
     "enName": "Khmer"
   },
   "ht": {
-    "zhName": "海地语",
+    "zhName": "海地語",
     "enName": "Haitian Creole"
   },
   "nob": {
-    "zhName": "书面挪威语",
+    "zhName": "書面挪威語",
     "enName": "Bokmål"
   },
   "pan": {
-    "zhName": "旁遮普语",
+    "zhName": "旁遮普語",
     "enName": "Punjabi"
   },
   "arq": {
-    "zhName": "阿尔及利亚阿拉伯语",
+    "zhName": "阿爾及利亞阿拉伯語",
     "enName": "Algerian Arabic"
   },
   "bis": {
-    "zhName": "比斯拉马语",
+    "zhName": "比斯拉馬語",
     "enName": "Bislama"
   },
   "frn": {
-    "zhName": "加拿大法语",
+    "zhName": "加拿大法語",
     "enName": "Canadian French"
   },
   "hak": {
-    "zhName": "哈卡钦语",
+    "zhName": "哈卡欽語",
     "enName": "Hakha Chin"
   },
   "hup": {
-    "zhName": "胡帕语",
+    "zhName": "胡帕語",
     "enName": "Hupa"
   },
   "ing": {
-    "zhName": "印古什语",
+    "zhName": "印古什語",
     "enName": "Ingush"
   },
   "lag": {
-    "zhName": "拉特加莱语",
+    "zhName": "拉特加萊語",
     "enName": "Latgalian"
   },
   "mau": {
-    "zhName": "毛里求斯克里奥尔语",
+    "zhName": "模里西斯克里奧爾語",
     "enName": "Mauritian Creole"
   },
   "mot": {
-    "zhName": "黑山语",
+    "zhName": "黑山語",
     "enName": "Montenegrin"
   },
   "pot": {
-    "zhName": "巴西葡萄牙语",
+    "zhName": "巴西葡萄牙語",
     "enName": "Brazilian Portuguese"
   },
   "ruy": {
-    "zhName": "卢森尼亚语",
+    "zhName": "盧森尼亞語",
     "enName": "Rusyn"
   },
   "sec": {
-    "zhName": "塞尔维亚-克罗地亚语",
+    "zhName": "塞爾維亞-克羅埃西亞語",
     "enName": "Serbo-Croatian"
   },
   "sil": {
-    "zhName": "西里西亚语",
+    "zhName": "西利西亞語",
     "enName": "Silesian"
   },
   "tua": {
-    "zhName": "突尼斯阿拉伯语",
+    "zhName": "突尼斯阿拉伯語",
     "enName": "Tunisian Arabic"
   },
   "ach": {
-    "zhName": "亚齐语",
+    "zhName": "亞齊語",
     "enName": "Achinese"
   },
   "aka": {
-    "zhName": "阿肯语",
+    "zhName": "阿肯語",
     "enName": "Akan"
   },
   "arg": {
-    "zhName": "阿拉贡语",
+    "zhName": "亞拉岡語",
     "enName": "Aragonese"
   },
   "aym": {
-    "zhName": "艾马拉语",
+    "zhName": "艾馬拉語",
     "enName": "Aymara"
   },
   "bal": {
-    "zhName": "俾路支语",
+    "zhName": "俾路支語",
     "enName": "Baluchi"
   },
   "bak": {
-    "zhName": "巴什基尔语",
+    "zhName": "巴什基爾語",
     "enName": "Bashkir"
   },
   "bem": {
-    "zhName": "本巴语",
+    "zhName": "本巴語",
     "enName": "Bemba"
   },
   "ber": {
-    "zhName": "柏柏尔语",
+    "zhName": "柏柏爾語",
     "enName": "Berber languages"
   },
   "bho": {
-    "zhName": "博杰普尔语",
+    "zhName": "博杰普爾語",
     "enName": "Bhojpuri"
   },
   "bli": {
-    "zhName": "比林语",
+    "zhName": "比林語",
     "enName": "Blin"
   },
   "bre": {
-    "zhName": "布列塔尼语",
+    "zhName": "布列塔尼語",
     "enName": "Breton"
   },
   "chr": {
-    "zhName": "切罗基语",
+    "zhName": "切羅基語",
     "enName": "Cherokee"
   },
   "nya": {
-    "zhName": "齐切瓦语",
+    "zhName": "齊切瓦語",
     "enName": "Chichewa"
   },
   "chv": {
-    "zhName": "楚瓦什语",
+    "zhName": "楚瓦什語",
     "enName": "Chuvash"
   },
   "cor": {
-    "zhName": "康瓦尔语",
+    "zhName": "康瓦爾語",
     "enName": "Cornish"
   },
   "cos": {
-    "zhName": "科西嘉语",
+    "zhName": "科西嘉語",
     "enName": "Corsican"
   },
   "cre": {
-    "zhName": "克里克语",
+    "zhName": "克里克語",
     "enName": "Creek"
   },
   "cri": {
-    "zhName": "克里米亚鞑靼语",
+    "zhName": "克里米亞韃靼語",
     "enName": "Crimean Tatar"
   },
   "div": {
-    "zhName": "迪维希语",
+    "zhName": "迪維希語",
     "enName": "Divehi"
   },
   "eno": {
-    "zhName": "古英语",
+    "zhName": "古英語",
     "enName": "Old English"
   },
   "frm": {
-    "zhName": "中古法语",
+    "zhName": "中古法語",
     "enName": "Middle French"
   },
   "fri": {
-    "zhName": "弗留利语",
+    "zhName": "弗留利語",
     "enName": "Friulian"
   },
   "ful": {
-    "zhName": "富拉尼语",
+    "zhName": "富拉尼語",
     "enName": "Fulani"
   },
   "gla": {
-    "zhName": "盖尔语",
+    "zhName": "蓋爾語",
     "enName": "Gaelic"
   },
   "lug": {
-    "zhName": "卢干达语",
+    "zhName": "盧干達語",
     "enName": "Luganda"
   },
   "gra": {
-    "zhName": "古希腊语",
+    "zhName": "古希臘語",
     "enName": "Ancient Greek"
   },
   "grn": {
-    "zhName": "瓜拉尼语",
+    "zhName": "瓜拉尼語",
     "enName": "Guarani"
   },
   "haw": {
-    "zhName": "夏威夷语",
+    "zhName": "夏威夷語",
     "enName": "Hawaiian"
   },
   "hil": {
-    "zhName": "希利盖农语",
+    "zhName": "希利蓋農語",
     "enName": "Hiligaynon"
   },
   "ido": {
-    "zhName": "伊多语",
+    "zhName": "伊多語",
     "enName": "Ido"
   },
   "ina": {
-    "zhName": "因特语",
+    "zhName": "因特語",
     "enName": "Interlingua"
   },
   "iku": {
-    "zhName": "伊努克提图特语",
+    "zhName": "伊努克提圖特語",
     "enName": "Inuktitut"
   },
   "jav": {
-    "zhName": "爪哇语",
+    "zhName": "爪哇語",
     "enName": "Javanese"
   },
   "kab": {
-    "zhName": "卡拜尔语",
+    "zhName": "卡拜爾語",
     "enName": "Kabyle"
   },
   "kal": {
-    "zhName": "格陵兰语",
+    "zhName": "格陵蘭語",
     "enName": "Kalaallisut"
   },
   "kau": {
-    "zhName": "卡努里语",
+    "zhName": "卡努裡語",
     "enName": "Kanuri"
   },
   "kas": {
-    "zhName": "克什米尔语",
+    "zhName": "克什米爾語",
     "enName": "Kashmiri"
   },
   "kah": {
-    "zhName": "卡舒比语",
+    "zhName": "卡舒比語",
     "enName": "Kashubian"
   },
   "kin": {
-    "zhName": "卢旺达语",
+    "zhName": "盧安達語",
     "enName": "Kinyarwanda"
   },
   "kon": {
-    "zhName": "刚果语",
+    "zhName": "剛果語",
     "enName": "Kongo"
   },
   "kok": {
-    "zhName": "孔卡尼语",
+    "zhName": "孔卡尼語",
     "enName": "Konkani"
   },
   "lim": {
-    "zhName": "林堡语",
+    "zhName": "林堡語",
     "enName": "Limburgish"
   },
   "lin": {
-    "zhName": "林加拉语",
+    "zhName": "林加拉語",
     "enName": "Lingala"
   },
   "loj": {
-    "zhName": "逻辑语",
+    "zhName": "邏輯語",
     "enName": "Lojban"
   },
   "log": {
-    "zhName": "低地德语",
+    "zhName": "低地德語",
     "enName": "Low German"
   },
   "los": {
-    "zhName": "下索布语",
+    "zhName": "下索布語",
     "enName": "Lower Sorbian"
   },
   "mai": {
-    "zhName": "迈蒂利语",
+    "zhName": "邁蒂利語",
     "enName": "Maithili"
   },
   "glv": {
-    "zhName": "曼克斯语",
+    "zhName": "曼克斯語",
     "enName": "Manx"
   },
   "mao": {
-    "zhName": "毛利语",
+    "zhName": "毛利語",
     "enName": "Maori"
   },
   "mah": {
-    "zhName": "马绍尔语",
+    "zhName": "馬紹爾語",
     "enName": "Marshallese"
   },
   "nbl": {
-    "zhName": "南恩德贝莱语",
+    "zhName": "南恩德貝萊語",
     "enName": "Southern Ndebele"
   },
   "nea": {
-    "zhName": "那不勒斯语",
+    "zhName": "那不勒斯語",
     "enName": "Neapolitan"
   },
   "nqo": {
-    "zhName": "西非书面语",
+    "zhName": "西非書面語",
     "enName": "N'Ko"
   },
   "sme": {
-    "zhName": "北方萨米语",
+    "zhName": "北方薩米語",
     "enName": "Northern Sami"
   },
   "nor": {
-    "zhName": "挪威语",
+    "zhName": "挪威語",
     "enName": "Norwegian"
   },
   "oji": {
-    "zhName": "奥杰布瓦语",
+    "zhName": "奧傑布瓦語",
     "enName": "Ojibwa"
   },
   "ori": {
-    "zhName": "奥里亚语",
+    "zhName": "奧里亞語",
     "enName": "Oriya"
   },
   "orm": {
-    "zhName": "奥罗莫语",
+    "zhName": "奧羅莫語",
     "enName": "Oromo"
   },
   "oss": {
-    "zhName": "奥塞梯语",
+    "zhName": "奧塞提亞語",
     "enName": "Ossetian"
   },
   "pam": {
-    "zhName": "邦板牙语",
+    "zhName": "邦板牙語",
     "enName": "Pampanga"
   },
   "pap": {
-    "zhName": "帕皮阿门托语",
+    "zhName": "帕皮阿門托語",
     "enName": "Papiamento"
   },
   "ped": {
-    "zhName": "北索托语",
+    "zhName": "北索托語",
     "enName": "Northern Sotho"
   },
   "que": {
-    "zhName": "克丘亚语",
+    "zhName": "克丘亞語",
     "enName": "Quechua"
   },
   "roh": {
-    "zhName": "罗曼什语",
+    "zhName": "羅曼什語",
     "enName": "Romansh"
   },
   "ro": {
-    "zhName": "罗姆语",
+    "zhName": "羅姆語",
     "enName": "Romany"
   },
   "sm": {
-    "zhName": "萨摩亚语",
+    "zhName": "薩摩亞語",
     "enName": "Samoan"
   },
   "san": {
-    "zhName": "梵语",
+    "zhName": "梵語",
     "enName": "Sanskrit"
   },
   "sco": {
-    "zhName": "苏格兰语",
+    "zhName": "蘇格蘭語",
     "enName": "Scots"
   },
   "sha": {
-    "zhName": "掸语",
+    "zhName": "撣語",
     "enName": "Shan"
   },
   "sna": {
-    "zhName": "修纳语",
+    "zhName": "修納語",
     "enName": "Shona"
   },
   "snd": {
-    "zhName": "信德语",
+    "zhName": "信德語",
     "enName": "Sindhi"
   },
   "sol": {
-    "zhName": "桑海语",
+    "zhName": "桑海語",
     "enName": "Songhai languages"
   },
   "sot": {
-    "zhName": "南索托语",
+    "zhName": "南索托語",
     "enName": "Southern Sotho"
   },
   "syr": {
-    "zhName": "叙利亚语",
+    "zhName": "敘利亞語",
     "enName": "Syriac"
   },
   "tet": {
-    "zhName": "德顿语",
+    "zhName": "德頓語",
     "enName": "Tetum"
   },
   "tir": {
-    "zhName": "提格利尼亚语",
+    "zhName": "提格利尼亞語",
     "enName": "Tigrinya"
   },
   "tso": {
-    "zhName": "聪加语",
+    "zhName": "聰加語",
     "enName": "Tsonga"
   },
   "twi": {
-    "zhName": "契维语",
+    "zhName": "契維語",
     "enName": "Twi"
   },
   "ups": {
-    "zhName": "高地索布语",
+    "zhName": "高地索布語",
     "enName": "Upper Sorbian"
   },
   "ven": {
-    "zhName": "文达语",
+    "zhName": "文達語",
     "enName": "Venda"
   },
   "wln": {
-    "zhName": "瓦隆语",
+    "zhName": "瓦隆語",
     "enName": "Walloon"
   },
   "wel": {
-    "zhName": "威尔士语",
+    "zhName": "威爾斯語",
     "enName": "Welsh"
   },
   "fry": {
-    "zhName": "西弗里斯语",
+    "zhName": "西弗里斯語",
     "enName": "Western Frisian"
   },
   "wol": {
-    "zhName": "沃洛夫语",
+    "zhName": "沃洛夫語",
     "enName": "Wolof"
   },
   "xho": {
-    "zhName": "科萨语",
+    "zhName": "科薩語",
     "enName": "Xhosa"
   },
   "yid": {
-    "zhName": "意第绪语",
+    "zhName": "意第緒語",
     "enName": "Yiddish"
   },
   "yor": {
-    "zhName": "约鲁巴语",
+    "zhName": "約魯巴語",
     "enName": "Yoruba"
   },
   "zaz": {
-    "zhName": "扎扎其语",
+    "zhName": "扎扎其語",
     "enName": "Zaza"
   },
   "zul": {
-    "zhName": "祖鲁语",
+    "zhName": "祖魯語",
     "enName": "Zulu"
   },
   "sun": {
-    "zhName": "巽他语",
+    "zhName": "巽他語",
     "enName": "BasaSunda"
   },
   "hmn": {
-    "zhName": "苗语",
+    "zhName": "苗語",
     "enName": "Hmong"
   },
   "src": {
-    "zhName": "塞尔维亚语(西里尔文)",
+    "zhName": "塞爾維亞語(西里爾文)",
     "enName": "Serb(Cyrillic)"
   }
 }

@@ -8,35 +8,35 @@
  */
 
 window.playerTips = `<div class="learn_points">
-    <div class="title"><b>练习要点</b></div>
+    <div class="title"><b>練習要點</b></div>
     <div class="case">
-        1、带上耳机听发音，更有助听清声音中的细节。<br>
-        2、练句子，把生词融入句子中。<br>
-        3、先理解句子含义。如有生词时，应先根据经验猜，然后才查词典确认猜的对不对。首选查英英词典，推荐朗文或格林斯之类的词典，把英语当工具使用，用英语思维去学习生词。如果还没达到这个能力，才考虑查中英词典。当理解含义后，忘掉所有文字，不管中文还是英文，理解含义为最终目的。<br>
-        4、认真听句子发音，并模仿发音。模仿发音时，需要忘掉所有文字，脑海里应浮现出句子运用的场景，把自己置身在场景中，投入感情和动用感官（视觉，听觉，嗅觉，味觉，触觉）去模仿。<br>
-        5、认真听自己的发音和原音的差异。<br>
-        6、重复第 4-5 步，自我修正发音。直到你感觉语速能跟上，发音接近，并且很流利为止。「练习次数多多益善」
+        1、帶上耳機聽發音，更有助聽清聲音中的細節。<br>
+        2、練句子，把生詞融入句子中。<br>
+        3、先理解句子含義。如有生詞時，應先根據經驗猜，然後才查詞典確認猜的對不對。首選查英英詞典，推薦朗文或格林斯之類的詞典，把英語當工具使用，用英語思維去學習生詞。如果還沒達到這個能力，才考慮查中英詞典。當理解含義後，忘掉所有文字，不管中文還是英文，理解含義為最終目的。<br>
+        4、認真聽句子發音，並模仿發音。模仿發音時，需要忘掉所有文字，腦海裡應浮現出句子運用的場景，把自己置身在場景中，投入感情和動用感官（視覺，聽覺，嗅覺，味覺，觸覺）去模仿。<br>
+        5、認真聽自己的發音和原音的差異。<br>
+        6、重複第 4-5 步，自我修正發音。直到你感覺語速能跟上，發音接近，並且很流利為止。「練習次數多多益善」
     </div>
 </div>
 
 <div class="learn_points">
-    <div class="title"><b>语速问题</b></div>
+    <div class="title"><b>語速問題</b></div>
     <div class="case">
-        如果感觉语速跟不上，这证明缺乏锻炼，不要想着去降低播放速度，而需要鼓励自己，锻炼你的耳朵和嘴巴。开始练习发音吧，当你重复练习 N 次后，你会感觉语速变慢了。相信自己，你可以的！
+        如果感覺語速跟不上，這證明缺乏鍛鍊，不要想著去降低播放速度，而需要鼓勵自己，鍛鍊你的耳朵和嘴巴。開始練習發音吧，當你重複練習 N 次後，你會感覺語速變慢了。相信自己，你可以的！
     </div>
 </div>
 
 <div class="learn_points">
-    <div class="title"><b>语言运用</b></div>
+    <div class="title"><b>語言運用</b></div>
     <div class="case">
-        语言是技能，最重要的是实战运用。所以句子练熟之后呢？就需要去使用这些句子，如果你有个友好耐心的老外朋友当陪练那当然最好，没有也不用特别在意，在学习外语过程中，用外语跟自己说话，要比跟别人交流更重要。
+        語言是技能，最重要的是實戰運用。所以句子練熟之後呢？就需要去使用這些句子，如果你有個友好耐心的老外朋友當陪練那當然最好，沒有也不用特別在意，在學習外語過程中，用外語跟自己說話，要比跟別人交流更重要。
     </div>
 </div>
 
 <div class="learn_points">
-    <div class="title"><b>学习方法</b></div>
+    <div class="title"><b>學習方法</b></div>
     <div class="case">
-        如果你对「正确学习英语的方法」感兴趣，请阅读《<a href="https://mengxiang.net/post/english.html" target="_blank">英语学习秘籍</a>》。
+        如果你對「正確學習英語的方法」感興趣，請閱讀《<a href="https://mengxiang.net/post/english.html" target="_blank">英語學習秘籍</a>》。
     </div>
 </div>`
 
@@ -48,7 +48,7 @@ function playerListen(id, options) {
         p[id].destroy()
     }
 
-    // 创建元素
+    // 創建元素
     let did = document.getElementById(id)
     let wid = id + '_waveform'
     did.innerHTML = `<div class="dmx_player">
@@ -60,7 +60,7 @@ function playerListen(id, options) {
     <div class="dmx_controls"><button type="button">Play</button></div>
 </div>`
 
-    // 初始参数
+    // 初始參數
     let o = Object.assign({
         url: '',
         onReady: null,
@@ -73,7 +73,7 @@ function playerListen(id, options) {
     let p_duration = did.querySelector('.dmx_p_duration')
     let p_controls = did.querySelector('.dmx_controls')
 
-    // 创建播放器
+    // 創建播放器
     let wsId = document.getElementById(wid)
     let height = wsId.clientHeight
     let ws, maxDuration
@@ -84,9 +84,9 @@ function playerListen(id, options) {
         barHeight: 2,
         backend: 'WebAudio',
         backgroundColor: '#66CCCC', // 背景色
-        waveColor: '#CCFF66', // 波纹色
-        progressColor: '#FF9900', // 填充色(播放后)
-        cursorColor: '#666633', // 指针色
+        waveColor: '#CCFF66', // 波紋色
+        progressColor: '#FF9900', // 填充色(播放後)
+        cursorColor: '#666633', // 指針色
         hideScrollbar: true,
     })
     o.url && ws.load(o.url)
@@ -118,12 +118,12 @@ function playerListen(id, options) {
         p_current.innerText = humanTime(maxDuration)
         typeof o.onFinish === 'function' ? o.onFinish.call(ws) : ws.showControls()
     })
-    p_controls.addEventListener('click', ws.playPause.bind(ws)) // 绑定事件
+    p_controls.addEventListener('click', ws.playPause.bind(ws)) // 綁定事件
     window._playerListen[id] = ws
     return ws
 }
 
-// 录音
+// 錄音
 function playerRecord(id, options) {
     if (!navigator.mediaDevices) return
     if (!window._playerRecord) window._playerRecord = []
@@ -133,7 +133,7 @@ function playerRecord(id, options) {
         if (p[id].recorder) p[id].recorder.destroy()
     }
 
-    // 创建元素
+    // 創建元素
     let did = document.getElementById(id)
     let wid = id + '_waveform'
     did.innerHTML = `<div class="dmx_player">
@@ -148,11 +148,11 @@ function playerRecord(id, options) {
     </div>
 </div>`
 
-    // 初始参数
+    // 初始參數
     let o = Object.assign({
         showStartBut: false,
         maxDuration: 5 * 1000,
-        mp3Enable: true, // safari 浏览器才启用
+        mp3Enable: true, // safari 瀏覽器才啟用
         onStart: null,
         onStop: null,
     }, options)
@@ -165,10 +165,10 @@ function playerRecord(id, options) {
     let wsId = document.getElementById(wid)
     let height = wsId.clientHeight
 
-    // 初始对象
+    // 初始對象
     let obj = {
         duration: 0,
-        recordStartTime: 0, // 开始录制时间
+        recordStartTime: 0, // 開始錄製時間
         recorder: null,
         microphone: null,
         ws: null,
@@ -177,22 +177,22 @@ function playerRecord(id, options) {
         blob: null,
     }
 
-    // 录音中按钮效果
+    // 錄音中按鈕效果
     obj.ButEl.start = () => addClass(p_circle, 'dmx_on')
 
-    // 录音停止按钮效果
+    // 錄音停止按鈕效果
     obj.ButEl.stop = () => rmClass(p_circle, 'dmx_on')
 
-    // 绑定开始录音事件
+    // 綁定開始錄音事件
     p_start.addEventListener('click', function () {
         !obj.active && obj.start()
     })
 
-    // 绑定停止录音事件
+    // 綁定停止錄音事件
     p_circle.addEventListener('click', function () {
         if (!obj.active) return
 
-        // 限制最短录音时长
+        // 限制最短錄音時長
         let minTime = 500
         if (!obj.recordStartTime || ((new Date() * 1) - obj.recordStartTime < minTime)) return
 
@@ -208,13 +208,13 @@ function playerRecord(id, options) {
         p_circle.style.display = 'flex'
     }
 
-    // 初始按钮显示
+    // 初始按鈕顯示
     o.showStartBut ? obj.showStartBut() : obj.hideStartBut()
 
-    // 定时器
+    // 定時器
     let t, tEnd
     let timeOutStart = function () {
-        obj.recordStartTime = new Date() * 1 // 开始录制时间
+        obj.recordStartTime = new Date() * 1 // 開始錄製時間
         tEnd = (new Date() * 1) + Number(o.maxDuration)
         t = setInterval(function () {
             let remain = tEnd - (new Date() * 1)
@@ -236,12 +236,12 @@ function playerRecord(id, options) {
         }
     }
 
-    // 设置最大录音时长
+    // 設置最大錄音時長
     obj.setMaxDuration = function (maxDuration) {
         o.maxDuration = Number(maxDuration)
     }
 
-    // 捕获麦克风
+    // 捕獲麥克風
     obj.captureMicrophone = function (callback) {
         navigator.mediaDevices.getUserMedia({audio: true}).then(function (stream) {
             obj.microphone = stream
@@ -249,7 +249,7 @@ function playerRecord(id, options) {
         })
     }
 
-    // 停止麦克风
+    // 停止麥克風
     obj.stopMicrophone = function () {
         if (!obj.microphone) return
         if (obj.microphone.getTracks) {
@@ -262,7 +262,7 @@ function playerRecord(id, options) {
         obj.microphone = null
     }
 
-    // 销毁
+    // 銷毀
     obj.destroy = function () {
         obj.stopMicrophone()
         if (obj.recorder) {
@@ -275,19 +275,19 @@ function playerRecord(id, options) {
         }
     }
 
-    // 开始录制
+    // 開始錄製
     obj.start = function () {
         if (obj.active) return
         obj.active = true
         obj.recordStartTime = 0
 
-        // 切换按钮显示
+        // 切換按鈕顯示
         if (o.showStartBut) obj.hideStartBut()
 
-        // 开始录音回调
+        // 開始錄音回調
         typeof o.onStart === 'function' && o.onStart.call(obj)
 
-        // 初始时间
+        // 初始時間
         p_duration.innerText = ' / ' + humanTime(o.maxDuration / 1000)
         p_current.innerText = '00:00:000'
 
@@ -298,7 +298,7 @@ function playerRecord(id, options) {
                 height: height,
                 barWidth: 3,
                 barHeight: 2,
-                cursorColor: '#CED5E2', // 指针色
+                cursorColor: '#CED5E2', // 指針色
                 hideScrollbar: true,
                 interact: false,
                 plugins: [WaveSurfer.microphone.create()]
@@ -310,8 +310,8 @@ function playerRecord(id, options) {
                     obj.recorder = window.RecordRTC(stream, options)
                     obj.recorder.startRecording()
 
-                    timeOutStart() // 定时器
-                    obj.ButEl.start() // 录音中
+                    timeOutStart() // 定時器
+                    obj.ButEl.start() // 錄音中
                 }, 300)
             })
             obj.ws.microphone.on('deviceError', function (code) {
@@ -323,29 +323,29 @@ function playerRecord(id, options) {
         }
     }
 
-    // 停止录音
+    // 停止錄音
     obj.stop = function () {
         if (!obj.active) return
         obj.active = false
 
-        timeOutStop() // 停止定时器
-        obj.ButEl.stop() // 停止录音
+        timeOutStop() // 停止定時器
+        obj.ButEl.stop() // 停止錄音
 
-        // 停止录音器波纹
+        // 停止錄音器波紋
         obj.ws.microphone.active && obj.ws.microphone.stop()
 
-        // 停止录音
+        // 停止錄音
         obj.recorder.stopRecording(function () {
             // obj.url = this.toURL();
             obj.blob = this.getBlob()
-            typeof o.onStop === 'function' && o.onStop.call(obj) // 停止录音回调
+            typeof o.onStop === 'function' && o.onStop.call(obj) // 停止錄音回調
         })
     }
     window._playerRecord[id] = obj
     return obj
 }
 
-// 对比
+// 對比
 function playerCompare(id, options) {
     if (!window._playerCompare) window._playerCompare = []
     let p = window._playerCompare
@@ -364,7 +364,7 @@ function playerCompare(id, options) {
     <div class="dmx_controls"><div class="dmx_circle"><i class="dmx-icon dmx-icon-headset-c"></i></div></div>
 </div>`
 
-    // 初始参数
+    // 初始參數
     let o = Object.assign({
         url: '',
         autoPlay: true,
@@ -375,7 +375,7 @@ function playerCompare(id, options) {
     let p_duration = did.querySelector('.dmx_p_duration')
     let but = did.querySelector('.dmx_circle')
 
-    // 创建播放器
+    // 創建播放器
     let wsId = document.getElementById(wid)
     let height = wsId.clientHeight
     let ws = WaveSurfer.create({
@@ -383,9 +383,9 @@ function playerCompare(id, options) {
         height: height,
         barWidth: 3,
         barHeight: 2,
-        waveColor: '#FFFF66', // 波纹色
-        progressColor: '#FFCC99', // 填充色(播放后)
-        cursorColor: '#333', // 指针色
+        waveColor: '#FFFF66', // 波紋色
+        progressColor: '#FFCC99', // 填充色(播放後)
+        cursorColor: '#333', // 指針色
         hideScrollbar: true,
         interact: false,
     })
@@ -399,7 +399,7 @@ function playerCompare(id, options) {
         }
         ws.setBackgroundColor('#66b1ff')
 
-        // 自动播放
+        // 自動播放
         if (o.autoPlay) {
             isClickPlay = true
             ws.play()
@@ -420,7 +420,7 @@ function playerCompare(id, options) {
     })
     window._playerCompare[id] = ws
 
-    // 解决 Safari 浏览器自动播放音频失败问题
+    // 解決 Safari 瀏覽器自動播放音訊失敗問題
     // but.addEventListener('click', () => {
     //     isClickPlay && ws.play()
     // })

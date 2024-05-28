@@ -16,37 +16,37 @@ let buttonEl = $('speak_button')
 document.addEventListener('DOMContentLoaded', async function () {
     if (isFirefox) {
         let d = document.createElement('div')
-        d.textContent = 'Firefox 不支持本地朗读功能'
+        d.textContent = 'Firefox 不支持本地朗讀功能'
         d.setAttribute('style', 'padding:5px;text-align:center;color:red;font-weight:bold;font-size:20px')
         document.body.appendChild(d)
         return
     }
 
-    // 语音包
+    // 語音包
     await fetch('../conf/langSpeak.json').then(r => r.json()).then(r => {
         langList = r
     })
 
-    // 获取发音列表
+    // 獲取發音列表
     await getVoices().then(r => {
         voices = r
     })
 
-    // 添加发音列表
+    // 添加發音列表
     let voiceList = voiceListSort(voices)
     for (const [key, val] of Object.entries(voiceList)) {
         val.forEach(v => {
             let op = document.createElement('option')
             op.value = v.voiceName
-            op.innerText = `${langList[key] ? langList[key].zhName : key} | ${v.voiceName}${v.remote ? ' | 远程' : ''}`
+            op.innerText = `${langList[key] ? langList[key].zhName : key} | ${v.voiceName}${v.remote ? ' | 遠程' : ''}`
             voiceEl.appendChild(op)
         })
     }
 
-    // 初始设置
+    // 初始設置
     loadConf()
 
-    // 修改设置
+    // 修改設置
     voiceEl.addEventListener('change', function () {
         setConf('voiceName', this.value)
     })
@@ -57,14 +57,14 @@ document.addEventListener('DOMContentLoaded', async function () {
         setConf('pitch', this.value)
     })
 
-    // 粘贴事件
+    // 黏貼事件
     inputEl.addEventListener('paste', function (e) {
         e.stopPropagation()
         e.preventDefault()
         this.innerText = (e.clipboardData || window.clipboardData).getData('Text')
     })
 
-    // 开始朗读
+    // 開始朗讀
     buttonEl.addEventListener('click', function () {
         let text = inputEl.innerText
         let voiceName = voiceEl.value
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         speak(text, options)
     })
 
-    // 停止朗读
+    // 停止朗讀
     document.addEventListener('keyup', function (e) {
         if (e.key === 'Escape') B.tts.stop()
     })
@@ -90,7 +90,7 @@ function voiceListSort(list) {
     // console.log(JSON.stringify(kArr.sort()))
     kArr = kArr.sort() // 排序
     let r = {}
-    if (list['zh-CN']) r['zh-CN'] = list['zh-CN'] // 中文简体放最前面
+    if (list['zh-CN']) r['zh-CN'] = list['zh-CN'] // 中文簡體放最前面
     kArr.forEach(k => {
         if (k === 'zh-CN') return
         r[k] = list[k]

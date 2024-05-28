@@ -13,26 +13,26 @@ let listen, record, compare
 document.addEventListener('DOMContentLoaded', async function () {
     await idb('favorite', 1, initFavorite).then(r => db = r)
 
-    initCate() // 加载分类
-    createCate() // 添加分类
-    updateCate() // 编辑分类
-    deleteCate() // 删除分类
+    initCate() // 載入分類
+    createCate() // 添加分類
+    updateCate() // 編輯分類
+    deleteCate() // 刪除分類
 
-    selectAll() // 全选/取消全选
-    moveSentence() // 批量移动句子
-    deleteBatchSentence() // 批量删除句子
+    selectAll() // 全選/取消全選
+    moveSentence() // 批次移動句子
+    deleteBatchSentence() // 批次刪除句子
 
-    exportZip() // 导出
-    importZip() // 导入
-    openSetting() // 设置
+    exportZip() // 導出
+    importZip() // 導入
+    openSetting() // 設置
 })
 
-// 添加分类
+// 添加分類
 function createCate() {
     $('create_cate_but').addEventListener('click', function () {
         ddi({
-            title: '新增分类', body: `<div class="dmx_form_item">
-            <div class="item_label">分类名称</div>
+            title: '新增分類', body: `<div class="dmx_form_item">
+            <div class="item_label">分類名稱</div>
                 <div class="item_content"><input id="create_cateName" type="text" autocomplete="off" required class="item_input"></div>
             </div>
             <div class="dmx_right">
@@ -41,27 +41,27 @@ function createCate() {
         })
         $('create_cate').addEventListener('click', () => {
             let cateName = $('create_cateName').value.trim()
-            if (!cateName) return dal('请填写分类名称', 'error')
+            if (!cateName) return dal('請填寫分類名稱', 'error')
             let d = new Date().toJSON()
             db.create('cate', {cateName, updateDate: d, createDate: d}).then(_ => {
                 removeDdi()
                 initCate()
             }).catch(e => {
                 let err = e.target.error.message
-                let msg = '添加失败'
-                if (err && err.includes('uniqueness requirements')) msg = '分类已存在，请勿重复添加'
+                let msg = '添加失敗'
+                if (err && err.includes('uniqueness requirements')) msg = '分類已存在，請勿重複添加'
                 dal(msg, 'error')
             })
         })
     })
 }
 
-// 编辑分类
+// 編輯分類
 function updateCate() {
     $('cate_edit').addEventListener('click', function () {
         ddi({
-            title: '编辑分类', body: `<div class="dmx_form_item">
-            <div class="item_label">分类名称</div>
+            title: '編輯分類', body: `<div class="dmx_form_item">
+            <div class="item_label">分類名稱</div>
                 <div class="item_content"><input id="update_cateName" type="text" autocomplete="off" required class="item_input"></div>
             </div>
             <div class="dmx_right">
@@ -72,59 +72,59 @@ function updateCate() {
         updateEl.value = $('cate_name').innerText
         $('update_cate').addEventListener('click', () => {
             let cateName = updateEl.value.trim()
-            if (!cateName) return dal('分类名称不能为空', 'error')
+            if (!cateName) return dal('分類名稱不能為空', 'error')
             db.update('cate', cateId, {cateName}).then(_ => {
                 removeDdi()
                 initCate()
             }).catch(e => {
                 let err = e.target.error.message
-                let msg = '修改失败'
-                if (err && err.includes('uniqueness requirements')) msg = '分类名称不允许重名'
+                let msg = '修改失敗'
+                if (err && err.includes('uniqueness requirements')) msg = '分類名稱不允許重名'
                 dal(msg, 'error')
             })
         })
     })
 }
 
-// 删除分类
+// 刪除分類
 function deleteCate() {
     $('cate_delete').addEventListener('click', function () {
-        dco('删除分类不可恢复，确认删除吗？', () => {
-            if (cateId < 1) return dal('系统分类不允许删除', 'error')
+        dco('刪除分類不可恢復，確認刪除嗎？', () => {
+            if (cateId < 1) return dal('系統分類不允許刪除', 'error')
             db.count('sentence', 'cateId', cateId).then(n => {
-                if (n > 0) return dal('分类存在数据，请先清空数据', 'error')
-                db.delete('cate', cateId).then(_ => initCate(0)).catch(_ => dal('删除失败', 'error'))
+                if (n > 0) return dal('分類存在數據，請先清空數據', 'error')
+                db.delete('cate', cateId).then(_ => initCate(0)).catch(_ => dal('刪除失敗', 'error'))
             })
         })
     })
 }
 
-// 批量移动句子
+// 批次移動句子
 function moveSentence() {
     $('sentence_move').addEventListener('click', function () {
         db.getAll('cate').then(arr => {
-            let s = '<option value="-1">选择分类</option>'
+            let s = '<option value="-1">選擇分類</option>'
             arr.forEach(v => {
-                if (v.cateId === cateId) return // 排除当前分类
+                if (v.cateId === cateId) return // 排除當前分類
                 s += `<option value="${v.cateId}">${v.cateName}</option>`
             })
 
             ddi({
-                title: '移动到', body: `<div class="dmx_form_item">
-                <div class="item_label">分类</div>
+                title: '移動到', body: `<div class="dmx_form_item">
+                <div class="item_label">分類</div>
                     <div class="item_content"><select id="move_cateId">${s}</select></div>
                 </div>
                 <div class="dmx_right">
-                    <button class="dmx_button" id="move_cate_but">确认</button>
+                    <button class="dmx_button" id="move_cate_but">確認</button>
                 </div>`
             })
             $('move_cate_but').addEventListener('click', () => {
                 let cateId = Number($('move_cateId').value)
-                if (cateId < 0) return dal('请选择分类', 'error')
+                if (cateId < 0) return dal('請選擇分類', 'error')
 
                 let eList = D('td.tb_checkbox input[type="checkbox"]:checked')
                 eList.forEach(el => {
-                    db.update('sentence', Number(el.value), {cateId}).catch(_ => dal('移动失败', 'error'))
+                    db.update('sentence', Number(el.value), {cateId}).catch(_ => dal('移動失敗', 'error'))
                 })
                 setTimeout(() => {
                     removeDdi()
@@ -136,13 +136,13 @@ function moveSentence() {
     })
 }
 
-// 批量删除句子
+// 批次刪除句子
 function deleteBatchSentence() {
     $('sentence_delete').addEventListener('click', function () {
         let eList = D('td.tb_checkbox input[type="checkbox"]:checked')
-        dco(`删除不可恢复，您确认要删除这 ${eList.length} 条数据吗？`, () => {
+        dco(`刪除不可恢復，您確認要刪除這 ${eList.length} 條數據嗎？`, () => {
             eList.forEach(el => {
-                db.delete('sentence', Number(el.value)).catch(_ => dal('删除失败', 'error'))
+                db.delete('sentence', Number(el.value)).catch(_ => dal('刪除失敗', 'error'))
             })
             setTimeout(() => {
                 initCate()
@@ -152,7 +152,7 @@ function deleteBatchSentence() {
     })
 }
 
-// 加载分类
+// 載入分類
 function initCate(id) {
     db.getAll('cate').then(arr => {
         let s = ''
@@ -161,7 +161,7 @@ function initCate(id) {
         })
         $('cate_box').innerHTML = s
 
-        // 分类筛选
+        // 分類篩選
         D('#cate_box li').forEach(el => {
             el.addEventListener('click', () => {
                 cateId = Number(el.dataset.id)
@@ -177,7 +177,7 @@ function initCate(id) {
     })
 }
 
-// 加载句子
+// 載入句子
 function initSentence(cateId) {
     let thLen = D('#sentence_box thead th').length
     let tbodyEl = S('#sentence_box tbody')
@@ -190,11 +190,11 @@ function initSentence(cateId) {
     let direction = orderBy === 'reverse' ? 'prev' : 'next'
     db.find('sentence', {indexName: 'cateId', query: cateId, direction}).then(arr => {
         if (arr.length < 1) {
-            tbodyEl.innerHTML = `<tr><td class="table_empty" colspan="${thLen}">暂无内容</td></tr>`
+            tbodyEl.innerHTML = `<tr><td class="table_empty" colspan="${thLen}">暫無內容</td></tr>`
             return
         }
 
-        if (orderBy === 'random') shuffle(arr) // 随机
+        if (orderBy === 'random') shuffle(arr) // 隨機
 
         // console.log(JSON.stringify(arr))
         let s = ''
@@ -206,22 +206,22 @@ function initSentence(cateId) {
                 <td class="tb_days">${v.days}</td>
                 <td class="tb_date" title="${getDate(v.createDate)}">${getDate(v.createDate, true)}</td>
                 <td class="tb_operate" data-id="${v.id}" data-key="${k}">
-                    <div class="dmx_button" data-action="skill">练习</div>
+                    <div class="dmx_button" data-action="skill">練習</div>
                     <div class="dmx_button dmx_button_warning" data-action="edit">修改</div>
-                    <div class="dmx_button dmx_button_danger" data-action="delete">删除</div>
+                    <div class="dmx_button dmx_button_danger" data-action="delete">刪除</div>
                 </td>
             </tr>`
         })
         tbodyEl.innerHTML = s
         sentenceData = arr
         selectBind()
-        exerciseSentence() // 练习句子
+        exerciseSentence() // 練習句子
         editSentence()
         deleteSentence()
     })
 }
 
-// 练习句子
+// 練習句子
 function exerciseSentence() {
     D('.dmx_button[data-action="skill"]').forEach(el => {
         el.addEventListener('click', () => {
@@ -230,9 +230,9 @@ function exerciseSentence() {
                 title: '',
                 body: `<div class="player_box">
                         <div class="tab fx">
-                            <u data-type="skill" class="active">朗读练习</u>
-                            <u data-type="record">发音练习</u>
-                            <u data-type="listen">听力练习</u>
+                            <u data-type="skill" class="active">朗讀練習</u>
+                            <u data-type="record">發音練習</u>
+                            <u data-type="listen">聽力練習</u>
                         </div>
                         <div id="skill_box"></div>
                     </div>`,
@@ -242,14 +242,14 @@ function exerciseSentence() {
                 }
             })
 
-            // 绑定事件
+            // 綁定事件
             let tabEl = D('.player_box u[data-type]')
             let boxEl = $('skill_box')
             tabEl.forEach(e => {
                 e.addEventListener('click', () => {
-                    // 练习状态时，不允许切换菜单，防止冲突
+                    // 練習狀態時，不允許切換菜單，防止衝突
                     if (window.isExercising) {
-                        dal('练习状态时，不允许切换菜单', 'error')
+                        dal('練習狀態時，不允許切換菜單', 'error')
                         return
                     }
                     let len = sentenceData.length
@@ -267,7 +267,7 @@ function exerciseSentence() {
                     s += `<div class="dmx_center${type === 'listen' ? ' dmx_hide' : ''}"><button class="dmx_button medium" id="next_but">下一句 (<span>${key + 1}</span>/${len})</button></div>`
                     if (type === 'listen') {
                         s += `<div class="dmx_left dmx_form_item">
-                            <div class="item_label">播放次数</div>
+                            <div class="item_label">播放次數</div>
                             <div class="item_content number"><input id="player_num" type="number" value="2" class="item_input"></div>
                             <div class="ml_1"><div class="dmx_button dmx_button_danger medium" id="stop_but">停止播放</div></div>
                         </div>`
@@ -308,7 +308,7 @@ function exerciseSentence() {
     })
 }
 
-// 加载播放器
+// 載入播放器
 function playerInit(key, type) {
     let maxDuration = 5000
     let practiceNum = 0
@@ -322,10 +322,10 @@ function playerInit(key, type) {
     let senEl = $('player_sentence')
     let nextEl = $('next_but')
 
-    // 显示句子
+    // 顯示句子
     senEl.innerHTML = pointSentence(sentence, words, type === 'record')
 
-    // 练习次数
+    // 練習次數
     let setPracticeNum = function (n, isUpdate) {
         let el = $('practice_num')
         if (el) el.innerText = n
@@ -348,12 +348,12 @@ function playerInit(key, type) {
         }
     }
 
-    // 加载完成
+    // 載入完成
     if (type === 'skill') {
         listen = playerListen('player_listen', {
             onReady: function (duration) {
                 let times = 2
-                if (duration > 10) times *= 2.5 // 时间越长，模仿越难
+                if (duration > 10) times *= 2.5 // 時間越長，模仿越難
                 maxDuration = Math.ceil(duration * times) * 1000
                 record.setMaxDuration(maxDuration)
             }
@@ -363,7 +363,7 @@ function playerInit(key, type) {
             showStartBut: true,
             maxDuration,
             onStart: () => {
-                window.isExercising = true // 用来限制练习状态时，不允许切换菜单
+                window.isExercising = true // 用來限制練習狀態時，不允許切換菜單
                 nextEl.disabled = true
             },
             onStop: () => {
@@ -377,8 +377,8 @@ function playerInit(key, type) {
                             record.showStartBut()
                             window.isExercising = false // 解除限制
                             nextEl.disabled = false // 解除禁用
-                            setPracticeNum(++practiceNum, true) // 练习次数
-                            if (practiceNum === 10) addClass(senEl, 'hide') // 提升难度，隐藏文字
+                            setPracticeNum(++practiceNum, true) // 練習次數
+                            if (practiceNum === 10) addClass(senEl, 'hide') // 提升難度，隱藏文字
                         })
                     }, 100)
                 })
@@ -389,15 +389,15 @@ function playerInit(key, type) {
         listen = playerListen('player_listen', {
             onReady: function (duration) {
                 let times = 2
-                if (duration > 10) times *= 2.5 // 时间越长，模仿越难
+                if (duration > 10) times *= 2.5 // 時間越長，模仿越難
                 maxDuration = Math.ceil(duration * times) * 1000
                 record.setMaxDuration(maxDuration)
             },
             onPlay: () => {
-                window.isExercising = true // 用来限制练习状态时，不允许切换菜单
+                window.isExercising = true // 用來限制練習狀態時，不允許切換菜單
                 nextEl.disabled = true
             },
-            onFinish: () => record.start(), // 开始录音
+            onFinish: () => record.start(), // 開始錄音
         })
         listen.loadBlob(row.blob)
         record = playerRecord('player_record', {
@@ -405,17 +405,17 @@ function playerInit(key, type) {
             onStop: () => {
                 compare.loadBlob(row.blob)
                 compare.once('finish', () => {
-                    let t = setTimeout(() => listen.showControls(), maxDuration + 1000) // 显示开始录音按钮
+                    let t = setTimeout(() => listen.showControls(), maxDuration + 1000) // 顯示開始錄音按鈕
                     setTimeout(() => {
                         compare.loadBlob(record.blob)
                         compare.once('finish', () => {
                             clearTimeout(t)
-                            listen.showControls() // 显示播放按钮
+                            listen.showControls() // 顯示播放按鈕
                             window.isExercising = false // 解除限制
                             nextEl.disabled = false // 解除禁用
-                            setPracticeNum(++practiceNum, true) // 练习次数
-                            if (practiceNum === 5) senEl.innerHTML = pointSentence(sentence, words) // 降低难度，显示文字
-                            if (practiceNum === 10) addClass(senEl, 'hide') // 提升难度，隐藏文字
+                            setPracticeNum(++practiceNum, true) // 練習次數
+                            if (practiceNum === 5) senEl.innerHTML = pointSentence(sentence, words) // 降低難度，顯示文字
+                            if (practiceNum === 10) addClass(senEl, 'hide') // 提升難度，隱藏文字
                         })
                     }, 100)
                 })
@@ -428,8 +428,8 @@ function playerInit(key, type) {
                 listen.play()
                 let nEl = $('player_num')
                 let n = nEl && nEl.value ? Number(nEl.value) : 2
-                setPracticeNum(++practiceNum) // 练习次数
-                if (practiceNum > 10) addClass(senEl, 'hide') // 提升难度，隐藏文字
+                setPracticeNum(++practiceNum) // 練習次數
+                if (practiceNum > 10) addClass(senEl, 'hide') // 提升難度，隱藏文字
                 if (practiceNum >= n) {
                     $('next_but').click()
                     setTimeout(() => listen.play(), 100)
@@ -440,7 +440,7 @@ function playerInit(key, type) {
     }
 }
 
-// 解析重点词汇
+// 解析重點詞彙
 function pointSentence(sentence, words, isUnderscore) {
     let s = HTMLEncode(sentence)
     let arr = words.split('\n')
@@ -479,15 +479,15 @@ function editSentence() {
             <div class="item_content"><input name="sentence" type="text" autocomplete="off" required class="item_input"></div>
         </div>
         <div class="dmx_form_item">
-            <div class="item_label">生词</div>
+            <div class="item_label">生詞</div>
             <div class="item_content"><textarea name="words" autocomplete="off" class="item_textarea"></textarea></div>
         </div>
         <div class="dmx_form_item">
-            <div class="item_label">备注</div>
+            <div class="item_label">備註</div>
             <div class="item_content"><textarea name="remark" autocomplete="off" class="item_textarea"></textarea></div>
         </div>
         <div class="dmx_right">
-            <button class="dmx_button" type="submit">确认</button>
+            <button class="dmx_button" type="submit">確認</button>
         </div>
     </div>`
             })
@@ -504,7 +504,7 @@ function editSentence() {
             })
             submitEl.addEventListener('click', () => {
                 let sentence = sentenceEl.value.trim()
-                if (!sentence) return dal('句子内容不能为空', 'error')
+                if (!sentence) return dal('句子內容不能為空', 'error')
                 db.update('sentence', id, {
                     sentence,
                     words: wordsEl.value,
@@ -512,25 +512,25 @@ function editSentence() {
                 }).then(_ => {
                     removeDdi()
                     initSentence(cateId)
-                }).catch(_ => dal('修改失败', 'error'))
+                }).catch(_ => dal('修改失敗', 'error'))
             })
         })
     })
 }
 
-// 删除句子
+// 刪除句子
 function deleteSentence() {
     D('.dmx_button[data-action="delete"]').forEach(el => {
         el.addEventListener('click', () => {
             let id = Number(el.parentNode.dataset.id)
-            dco(`删除不可恢复，您确认要删除吗？`, () => {
-                db.delete('sentence', id).then(_ => initSentence(cateId)).catch(_ => dal('删除失败', 'error'))
+            dco(`刪除不可恢復，您確認要刪除嗎？`, () => {
+                db.delete('sentence', id).then(_ => initSentence(cateId)).catch(_ => dal('刪除失敗', 'error'))
             })
         })
     })
 }
 
-// 显示批量操作按钮
+// 顯示批次操作按鈕
 function selectBind() {
     let eList = D('td.tb_checkbox input[type="checkbox"]')
     eList.forEach(el => {
@@ -542,10 +542,10 @@ function selectBind() {
     })
 }
 
-// 导出
+// 導出
 function exportZip() {
     $('export').addEventListener('click', async function () {
-        loading('打包下载...')
+        loading('打包下載...')
         let zip = new JSZip()
 
         // cate
@@ -576,28 +576,28 @@ function exportZip() {
     })
 }
 
-// 下载 ZIP
+// 下載 ZIP
 function downloadZip(blob) {
     let el = document.createElement('a')
     el.href = URL.createObjectURL(blob)
-    el.download = `梦想划词翻译-${getDate().replace(/\D/g, '')}.zip`
+    el.download = `夢想劃詞翻譯-${getDate().replace(/\D/g, '')}.zip`
     el.click()
 }
 
-// 导入
+// 導入
 function importZip() {
     $('import').addEventListener('click', function () {
         ddi({
-            title: '导入', body: `<div class="dmx_form_item">
-                <div class="item_label">清空数据</div>
+            title: '導入', body: `<div class="dmx_form_item">
+                <div class="item_label">清空數據</div>
                 <div class="item_content"><input type="checkbox" id="import_clear"></div>
             </div>
             <div class="dmx_form_item">
-                <div class="item_label">初始统计</div>
+                <div class="item_label">初始統計</div>
                 <div class="item_content"><input type="checkbox" id="import_initial"></div>
             </div>
             <div class="dmx_form_item" style="padding:5px 0 15px">
-                <button class="dmx_button" id="upload_but">选择文件...</button>
+                <button class="dmx_button" id="upload_but">選擇文件...</button>
             </div>`
         })
         let butEl = $('upload_but')
@@ -609,20 +609,20 @@ function importZip() {
                 let files = this.files
                 if (files.length < 1) return
                 let f = files[0]
-                // if (f.type !== 'application/zip') return // windows 系统识别类型为 application/x-zip-compressed，从而导致 bug
+                // if (f.type !== 'application/zip') return // windows 系統識別類型為 application/x-zip-compressed，從而導致 bug
                 if (!f.type.includes('zip')) {
-                    dal('请选择正确的压缩包文件！', 'error')
+                    dal('請選擇正確的壓縮包文件！', 'error')
                     return
                 }
 
                 butEl.disabled = true
-                butEl.innerText = '正在导入...'
+                butEl.innerText = '正在導入...'
 
                 let tStart = new Date()
                 let isClear = $('import_clear').checked
                 let isInitial = $('import_initial').checked
                 JSZip.loadAsync(f).then(async function (zip) {
-                    // zip.forEach((filename, file) => console.log(filename, file)) // zip 详情
+                    // zip.forEach((filename, file) => console.log(filename, file)) // zip 詳情
 
                     let errStr = ''
                     let errNum = 0
@@ -651,7 +651,7 @@ function importZip() {
 
                     // sentence
                     let sentenceNum = 0
-                    let sentenceRepeat = 0 // 重复的句子
+                    let sentenceRepeat = 0 // 重複的句子
                     let sentenceArr = []
                     try {
                         let sentence = await zip.file('sentence.json').async('text')
@@ -661,7 +661,7 @@ function importZip() {
                     }
 
                     if (isClear) {
-                        // 清空数据
+                        // 清空數據
                         db.clear('sentence').then(_ => debug('sentence clear finish.')).catch(e => errAppend(e))
                         db.clear('cate').then(_ => debug('cate clear ok.')).catch(e => errAppend(e))
 
@@ -671,7 +671,7 @@ function importZip() {
                         // sentence
                         for (let v of sentenceArr) {
                             await zip.file(`mp3/${v.id}.mp3`).async('blob').then(b => {
-                                v.blob = b.slice(0, b.size, mp3TypeObj[v.id] || 'audio/mpeg') // 设置 blob 类型
+                                v.blob = b.slice(0, b.size, mp3TypeObj[v.id] || 'audio/mpeg') // 設置 blob 類型
                             })
                             if (isInitial) {
                                 v.records = 0
@@ -679,67 +679,67 @@ function importZip() {
                             }
                             await db.create('sentence', v).then(r => {
                                 sentenceNum++
-                                butEl.innerText = `正在导入... ${sentenceNum}/${sentenceArr.length}`
+                                butEl.innerText = `正在導入... ${sentenceNum}/${sentenceArr.length}`
                                 debug('sentence create:', v.id, r)
                             }).catch(e => errAppend(e))
                         }
                     } else {
-                        // cate 对应表
+                        // cate 對應表
                         let cateMap = {}
                         for (let v of cateArr) {
                             let row = null
                             await db.readByIndex('cate', 'cateName', v.cateName.trim()).then(r => row = r).catch(e => errAppend(e))
                             if (!row) {
-                                // 不存在就创建
+                                // 不存在就創建
                                 let oldId = v.cateId
                                 delete v.cateId
                                 await db.create('cate', v).then(r => {
-                                    cateMap[oldId] = r.target.result // 对应新创建的ID
+                                    cateMap[oldId] = r.target.result // 對應新創建的ID
                                 }).catch(e => errAppend(e))
                             } else {
-                                cateMap[v.cateId] = row.cateId // 存在就记录对应的ID
+                                cateMap[v.cateId] = row.cateId // 存在就記錄對應的ID
                             }
                         }
 
                         // sentence
                         for (let v of sentenceArr) {
-                            // 判断句子是否存在
+                            // 判斷句子是否存在
                             let sentence = null
                             await db.readByIndex('sentence', 'sentence', v.sentence.trim()).then(r => sentence = r).catch(e => errAppend(e))
                             if (sentence) {
                                 sentenceRepeat++
-                                continue // 如果存在，就跳过
+                                continue // 如果存在，就跳過
                             }
 
-                            // 初始统计
+                            // 初始統計
                             if (isInitial) {
                                 v.records = 0
                                 v.days = 0
                             }
 
-                            // 获取音频
+                            // 獲取音訊
                             await zip.file(`mp3/${v.id}.mp3`).async('blob').then(b => {
-                                v.blob = b.slice(0, b.size, mp3TypeObj[v.id] || 'audio/mpeg') // 设置 blob 类型
+                                v.blob = b.slice(0, b.size, mp3TypeObj[v.id] || 'audio/mpeg') // 設置 blob 類型
                             })
 
-                            // 写入数据库
+                            // 寫入資料庫
                             v.cateId = cateMap[v.cateId] || 0
                             delete v.id
                             await db.create('sentence', v).then(r => {
                                 sentenceNum++
-                                butEl.innerText = `正在导入... ${sentenceNum}/${sentenceArr.length}`
+                                butEl.innerText = `正在導入... ${sentenceNum}/${sentenceArr.length}`
                                 debug('create sentenceId:', r.target.result)
                             }).catch(e => errAppend(e))
                         }
                     }
 
-                    let okMsg = `导入完成<br> 导入：${sentenceNum} 条`
-                    if (sentenceRepeat > 0) okMsg += `，重复：${sentenceRepeat} 条`
+                    let okMsg = `導入完成<br> 導入：${sentenceNum} 條`
+                    if (sentenceRepeat > 0) okMsg += `，重複：${sentenceRepeat} 條`
                     if (errNum > 0) {
-                        okMsg += `，错误：${errNum} 次`
+                        okMsg += `，錯誤：${errNum} 次`
                         console.warn('errStr:', errStr)
                     }
-                    okMsg += `<br>耗时：${new Date() - tStart} ms`
+                    okMsg += `<br>耗時：${new Date() - tStart} ms`
                     dal(okMsg, 'success', () => {
                         // location.reload()
                         removeDdi()
@@ -747,7 +747,7 @@ function importZip() {
                         initSentence(cateId)
                     })
                 }).catch(e => {
-                    dal('读取压缩包失败', 'error', () => removeDdi())
+                    dal('讀取壓縮包失敗', 'error', () => removeDdi())
                     debug('loadAsync error:', e)
                 })
             }
@@ -756,17 +756,17 @@ function importZip() {
     })
 }
 
-// 设置
+// 設置
 function openSetting() {
     $('setting').addEventListener('click', function () {
         ddi({
-            title: '设置', body: `<div class="dmx_form_item">
-            <div class="item_label">展示顺序</div>
+            title: '設置', body: `<div class="dmx_form_item">
+            <div class="item_label">展示順序</div>
                 <div class="item_content number">
                     <select id="order_by">
                         <option value="obverse">正序</option>
                         <option value="reverse">倒序</option>
-                        <option value="random">随机</option>
+                        <option value="random">隨機</option>
                     </select>
                 </div>
             </div>
@@ -783,7 +783,7 @@ function openSetting() {
     })
 }
 
-// 全选/取消全选
+// 全選/取消全選
 function selectAll() {
     $('selectAll').addEventListener('click', function () {
         let eList = D('td.tb_checkbox input[type="checkbox"]')
@@ -792,13 +792,13 @@ function selectAll() {
     })
 }
 
-// 取消选中
+// 取消選中
 function selectCancel() {
     $('selectAll').checked = false
     rmClass($('extra_but'), 'dmx_show')
 }
 
-// 随机数组
+// 隨機數組
 function shuffle(arr) {
     for (let k = 0; k < arr.length; k++) {
         let i = Math.floor(Math.random() * arr.length);

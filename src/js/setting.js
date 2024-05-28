@@ -27,30 +27,30 @@ document.addEventListener('DOMContentLoaded', async function () {
 })
 
 function init() {
-    // 词典发音列表
+    // 詞典發音列表
     let dictionarySoundList = {}
     for (let [k, v] of Object.entries(conf.dictionaryList)) {
         if (conf.dictionarySoundExcluded.includes(k)) continue // 排除
         dictionarySoundList[k] = v
     }
 
-    // 绑定导航
+    // 綁定導航
     navigate('navigate', '.setting_box')
 
-    // 初始参数
+    // 初始參數
     settingBoxHTML('setting_translate_list', 'translateList', conf.translateList)
     settingBoxHTML('setting_translate_tts_list', 'translateTTSList', conf.translateTTSList)
     settingBoxHTML('setting_dictionary_list', 'dictionaryList', conf.dictionaryList)
     settingBoxHTML('setting_dictionary_sound_list', 'dictionarySoundList', dictionarySoundList)
 
-    // 初始可替换的本机朗读参数
+    // 初始可替換的本機朗讀參數
     if (isFirefox) {
         $('local_box').style.display = 'none'
     } else {
         initLocalSoundReplace()
     }
 
-    // 设置值 & 绑定事件
+    // 設置值 & 綁定事件
     setBindValue('scribble', setting.scribble)
     setBindValue('excludeChinese', setting.excludeChinese)
     setBindValue('excludeSymbol', setting.excludeSymbol)
@@ -75,26 +75,26 @@ function init() {
     setBindValue('dictionarySoundList', setting.dictionarySoundList)
     setBindValue('dictionaryReader', setting.dictionaryReader)
 
-    // 绑定顺序展示
-    bindSortHTML('展示顺序：', 'setting_translate_sort', 'translateList', setting.translateList, conf.translateList)
-    bindSortHTML('朗读顺序：', 'setting_translate_tts_sort', 'translateTTSList', setting.translateTTSList, conf.translateTTSList)
-    bindSortHTML('展示顺序：', 'setting_dictionary_sort', 'dictionaryList', setting.dictionaryList, conf.dictionaryList)
-    bindSortHTML('朗读顺序：', 'setting_dictionary_sound_sort', 'dictionarySoundList', setting.dictionarySoundList, dictionarySoundList)
+    // 綁定順序展示
+    bindSortHTML('展示順序：', 'setting_translate_sort', 'translateList', setting.translateList, conf.translateList)
+    bindSortHTML('朗讀順序：', 'setting_translate_tts_sort', 'translateTTSList', setting.translateTTSList, conf.translateTTSList)
+    bindSortHTML('展示順序：', 'setting_dictionary_sort', 'dictionaryList', setting.dictionaryList, conf.dictionaryList)
+    bindSortHTML('朗讀順序：', 'setting_dictionary_sound_sort', 'dictionarySoundList', setting.dictionarySoundList, dictionarySoundList)
 
-    // 搜索设置功能
+    // 搜索設置功能
     initSearch()
 
-    // 绑定是否显示"朗读"参数
+    // 綁定是否顯示"朗讀"參數
     bindShow('setting_dictionary_reader', 'dictionarySoundList', setting.dictionarySoundList)
 
-    // 本机 TTS 设置
+    // 本機 TTS 設置
     localTtsSetting()
     searchListSetting()
 
-    // 文字识别设置
+    // 文字識別設置
     settingOcr()
 
-    // 重置设置
+    // 重設設置
     $('clearSetting').addEventListener('click', clearSetting)
 }
 
@@ -107,19 +107,19 @@ function initSearch() {
     setBindValue('searchMenus', setting.searchMenus)
     setBindValue('searchSide', setting.searchSide)
 
-    bindSortHTML('展示顺序：', 'setting_search_sort', 'searchList', setting.searchList, searchList)
-    bindSortHTML('展示顺序：', 'setting_search_menus_sort', 'searchMenus', setting.searchMenus, searchList)
-    bindSortHTML('展示顺序：', 'setting_search_side_sort', 'searchSide', setting.searchSide, searchList)
+    bindSortHTML('展示順序：', 'setting_search_sort', 'searchList', setting.searchList, searchList)
+    bindSortHTML('展示順序：', 'setting_search_menus_sort', 'searchMenus', setting.searchMenus, searchList)
+    bindSortHTML('展示順序：', 'setting_search_side_sort', 'searchSide', setting.searchSide, searchList)
 
-    // 绑定右键菜单设置
+    // 綁定右鍵菜單設置
     bindSearchMenus()
 }
 
 function initLocalSoundReplace() {
-    let s = '<option value="">默认</option>'
+    let s = '<option value="">默認</option>'
     let list = conf.translateList
     Object.keys(list).forEach(k => {
-        s += `<option value="${k}">${list[k]}朗读</option>`
+        s += `<option value="${k}">${list[k]}朗讀</option>`
     })
     N('localSoundReplace')[0].innerHTML = s
 }
@@ -136,13 +136,13 @@ function navigate(navId, contentSel) {
     let conEl = document.querySelectorAll(contentSel)
     el.forEach(fn => {
         fn.addEventListener('click', function () {
-            // 修改活动样式
+            // 修改活動樣式
             el.forEach(elu => {
                 rmClass(elu, 'active')
             })
             addClass(this, 'active')
 
-            // 显示对应框
+            // 顯示對應框
             conEl.forEach(elc => {
                 elc.style.display = 'none'
             })
@@ -150,7 +150,7 @@ function navigate(navId, contentSel) {
             $(target).style.display = 'block'
         })
     })
-    nav.querySelector('u.active').click() // 激活初始值
+    nav.querySelector('u.active').click() // 啟用初始值
 }
 
 function setBindValue(name, value) {
@@ -208,7 +208,7 @@ function bindValue(name, value) {
                 }
             }
 
-            // 保存设置
+            // 保存設置
             setSetting(name, value)
         })
     })
@@ -217,7 +217,7 @@ function bindValue(name, value) {
 function bindSearchMenus() {
     N('searchMenus').forEach(v => {
         v.addEventListener('change', function () {
-            // firefox 在 iframe 下功能缺失，只能通过 message 处理
+            // firefox 在 iframe 下功能缺失，只能通過 message 處理
             sendMessage({action: 'menu', name: this.value, isAdd: this.checked})
         })
     })
@@ -302,7 +302,7 @@ function searchListSetting() {
         searchText = textEl.value.trim()
         searchList = getSearchKey(searchText)
 
-        // 清理不存在的设置
+        // 清理不存在的設置
         let keyArr = Object.keys(searchList)
         let funNewArr = function (arr, isMenu) {
             let newArr = []
@@ -310,7 +310,7 @@ function searchListSetting() {
                 if (keyArr.includes(v)) {
                     newArr.push(v)
                 } else if (isMenu) {
-                    // 移除右键设置
+                    // 移除右鍵設置
                     sendMessage({action: 'menu', name: v, isAdd: false})
                 }
             })
@@ -330,7 +330,7 @@ function searchListSetting() {
         dal('保存成功')
     }
 
-    // 关闭设置
+    // 關閉設置
     $('search_list_back').onclick = function () {
         dialogEl.style.display = 'none'
         rmClass(document.body, 'dmx_overflow_hidden')
@@ -346,16 +346,16 @@ function localTtsSetting() {
         return
     }
 
-    // 关闭设置
+    // 關閉設置
     dialogEl.querySelector('.dialog_back').onclick = function () {
         dialogEl.style.display = 'none'
         rmClass(document.body, 'dmx_overflow_hidden')
     }
 
-    // 打开设置
+    // 打開設置
     let i = document.createElement('i')
     i.className = 'dmx-icon dmx-icon-setting'
-    i.title = '本机朗读设置'
+    i.title = '本機朗讀設置'
     i.onclick = function (e) {
         e.preventDefault()
         dialogEl.style.display = 'block'
@@ -363,31 +363,31 @@ function localTtsSetting() {
     }
     butEl.parentNode.appendChild(i)
 
-    // 初始设置
+    // 初始設置
     let langList = {}, voices = {}
     ;(async () => {
-        // 语音包
+        // 語音包
         await fetch('../conf/langSpeak.json').then(r => r.json()).then(r => {
             langList = r
         })
 
-        // 获取发音列表
+        // 獲取發音列表
         await getVoices().then(r => {
             voices = r
         })
 
-        // 归类发音列表
+        // 歸類發音列表
         let specialLang = ['en', 'es', 'nl']
         let voiceList = voiceListSort(voices, specialLang)
 
-        // 创建发音列表
+        // 創建發音列表
         let s1 = '', s2 = ''
         let ttsKeys = Object.values(conf.ttsList)
         for (const [key, val] of Object.entries(voiceList)) {
             let preName = langList[key] ? langList[key].zhName : key
-            let select = `<select key="${key}"><option value="">默认</option>`
+            let select = `<select key="${key}"><option value="">默認</option>`
             val.forEach(v => {
-                let name = v.voiceName + (v.remote ? ' | 远程' : '')
+                let name = v.voiceName + (v.remote ? ' | 遠程' : '')
                 if (specialLang.includes(key)) name = (langList[v.lang] ? langList[v.lang].zhName : v.lang) + ' | ' + name
                 select += `<option value="${v.voiceName}">${name}</option>`
             })
@@ -401,24 +401,24 @@ function localTtsSetting() {
         }
         listEl.insertAdjacentHTML('beforeend', `<div class="lang_list">${s1}</div><div class="lang_list_err">${s2}</div>`)
 
-        // 初始发音设置
+        // 初始發音設置
         if (!setting.ttsConf) setting.ttsConf = {}
         for (let [k, v] of Object.entries(setting.ttsConf)) {
             let vEl = dialogEl.querySelector(`select[key="${k}"]`)
             if (vEl) vEl.value = v
         }
 
-        // 修改发音设置
+        // 修改發音設置
         let sEl = dialogEl.querySelectorAll('select')
         sEl.forEach(fn => {
             fn.onchange = function () {
                 let key = fn.getAttribute('key')
                 setting.ttsConf[key] = this.value
-                setSetting('ttsConf', setting.ttsConf) // 保存设置
+                setSetting('ttsConf', setting.ttsConf) // 保存設置
             }
         })
 
-        // 重置发音设置
+        // 重設發音設置
         $('local_tts_reset_setting').onclick = function () {
             setSetting('ttsConf', {})
             sEl.forEach(fn => {
@@ -465,7 +465,7 @@ function sendSetting(setting, updateIcon, resetDialog) {
     if (B.getBackgroundPage) {
         B.getBackgroundPage().saveSettingAll(setting, updateIcon, resetDialog)
     } else {
-        // firefox 在 iframe 下功能缺失，所以通过 message 处理
+        // firefox 在 iframe 下功能缺失，所以通過 message 處理
         sendMessage({action: 'saveSetting', setting, updateIcon, resetDialog})
     }
 }

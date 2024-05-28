@@ -1,6 +1,6 @@
 {
-  "name": "梦想划词翻译—聚合词典搜索",
-  "description": "梦想划词翻译是为阅读和学习外语而开发的一款翻译和查词工具，聚合数十款在线词典和在线翻译。",
+  "name": "夢想劃詞翻譯—聚合詞典搜索",
+  "description": "夢想劃詞翻譯是為閱讀和學習外語而開發的一款翻譯和查詞工具，聚合數十款線上詞典和線上翻譯。",
   "version": "1.6.27",
   "manifest_version": 2,
   "icons": {
@@ -40,7 +40,7 @@
   ],
   "browser_action": {
     "default_popup": "html/popup.html",
-    "default_title": "梦想划词翻译",
+    "default_title": "夢想劃詞翻譯",
     "default_icon": "icon/128.png"
   },
   "web_accessible_resources": [
@@ -62,35 +62,35 @@
   "homepage_url": "https://github.com/ryanker/dream_translate",
   "commands": {
     "_execute_browser_action": {
-      "description": "打开翻译面板",
+      "description": "打開翻譯面板",
       "suggested_key": {
         "default": "Alt+D"
       }
     },
     "openWindow": {
-      "description": "打开翻译窗口",
+      "description": "打開翻譯窗口",
       "global": true,
       "suggested_key": {
         "default": "Ctrl+Shift+9"
       }
     },
     "toggleScribble": {
-      "description": "划词翻译开关",
+      "description": "劃詞翻譯開關",
       "suggested_key": {
         "default": "Ctrl+Shift+X"
       }
     },
     "cropImage": {
-      "description": "截图识别翻译",
+      "description": "截圖識別翻譯",
       "suggested_key": {
         "default": "Ctrl+Shift+A"
       }
     },
     "stopPlayAudio": {
-      "description": "停止播放声音"
+      "description": "停止播放聲音"
     },
     "clipboardTrans": {
-      "description": "剪贴板内容翻译"
+      "description": "剪貼板內容翻譯"
     }
   }
 }

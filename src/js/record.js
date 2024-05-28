@@ -15,7 +15,7 @@ let listen = {}, listen2 = {}, record, compare
 document.addEventListener('DOMContentLoaded', function () {
     playerInit()
 
-    // 加载音频
+    // 載入音訊
     setTimeout(() => {
         if (audioSrc.blob) {
             listen.loadBlob(audioSrc.blob)
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let urlInp = S('input[name="url"]')
     let wordsTex = S('textarea[name="words"]')
 
-    // 练习提示
+    // 練習提示
     record_box.insertAdjacentHTML('beforeend', window.playerTips)
 
     // 添加收藏
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (url) urlInp.value = url
     })
 
-    // 修改链接
+    // 修改連結
     urlInp.addEventListener('blur', () => {
         let url = urlInp.value.trim()
         if (url && url !== audioSrc.url) bg.getAudioBlob(url).then(blob => listen2.loadBlob(blob))
@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
         rmClass(favorite_form, 'dmx_show')
     })
 
-    // 提交表单
+    // 提交表單
     sentence_form.addEventListener('submit', (e) => {
         e.preventDefault()
         idb('favorite', 1, initFavorite).then(async db => {
-            // 如果链接修改过，重新获取二进制文件
+            // 如果連結修改過，重新獲取二進位制文件
             let url = urlInp.value.trim()
             if (url && url !== audioSrc.url) await bg.getAudioBlob(url).then(b => audioSrc.blob = b)
 
@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }).catch(e => {
                 // console.log(e)
                 let err = e.target.error.message
-                let msg = '添加失败'
-                if (err && err.includes('uniqueness requirements')) msg = '句子已存在，请勿重复添加'
+                let msg = '添加失敗'
+                if (err && err.includes('uniqueness requirements')) msg = '句子已存在，請勿重複添加'
                 dal(msg, 'error')
             })
         })
@@ -111,12 +111,12 @@ function playerInit() {
     listen = playerListen('player_listen', {
         onReady: function (duration) {
             let times = 2
-            if (duration > 10) times *= 2.5 // 时间越长，模仿越难
+            if (duration > 10) times *= 2.5 // 時間越長，模仿越難
             maxDuration = Math.ceil(duration * times) * 1000
             record.setMaxDuration(maxDuration)
         },
         onFinish: () => {
-            record.start() // 开始录音
+            record.start() // 開始錄音
         },
     })
 
@@ -125,14 +125,14 @@ function playerInit() {
         onStop: () => {
             compare.loadBlob(audioSrc.blob)
             compare.once('finish', () => {
-                let t = setTimeout(() => listen.showControls(), maxDuration + 1000)  // 显示播放按钮
+                let t = setTimeout(() => listen.showControls(), maxDuration + 1000)  // 顯示播放按鈕
                 setTimeout(() => {
                     // compare.load(URL.createObjectURL(record.blob))
                     compare.loadBlob(record.blob)
                     compare.once('finish', () => {
                         clearTimeout(t)
-                        listen.showControls() // 显示播放按钮
-                        $('practice_num').innerText = ++practiceNum // 练习次数
+                        listen.showControls() // 顯示播放按鈕
+                        $('practice_num').innerText = ++practiceNum // 練習次數
                     })
                 }, 100)
             })
