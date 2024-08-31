@@ -1106,7 +1106,7 @@ a:hover {
 }
 
 .dict_cambridge .dtrans {
-    display: block;
+    display: inline-block;
     color: #0580e8;
 }
 
