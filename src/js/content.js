@@ -1191,8 +1191,8 @@ function dmxDialog(options) {
                 <i class="dmx-icon disabled dmx-icon-right"></i>
             </div>
             <div id="dmx_navigate">
-                <u class="dmx-icon" action="translate">翻译</u>
-                <u class="dmx-icon" action="dictionary">词典</u>
+                <u class="dmx-icon" action="translate">翻譯</u>
+                <u class="dmx-icon" action="dictionary">辭典</u>
                 <u class="dmx-icon" action="search">搜索</u>
             </div>
         </div>
