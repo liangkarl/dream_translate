@@ -12,7 +12,7 @@ Google圖片|https://www.google.com/search?q={0}&tbm=isch
 有道詞典|https://www.youdao.com/w/eng/{0}
 金山詞典|https://www.iciba.com/word?w={0}
 牛津詞典|https://www.oxfordlearnersdictionaries.com/search/english/?q={0}
-劍橋詞典|https://dictionary.cambridge.org/dictionary/english-chinese-simplified/{0}
+劍橋詞典|https://dictionary.cambridge.org/dictionary/english-chinese-traditional/{0}
 格林斯詞典|https://www.collinsdictionary.com/search/?dictCode=english&q={0}
 豆瓣讀書|https://search.douban.com/book/subject_search?search_text={0}
 京東搜索|https://search.jd.com/Search?keyword={0}

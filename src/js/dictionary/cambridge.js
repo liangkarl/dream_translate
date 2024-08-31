@@ -10,7 +10,7 @@
 function cambridgeDictionary() {
     return {
         enUrl: 'https://dictionary.cambridge.org/dictionary/english/',
-        zHUrl: 'https://dictionary.cambridge.org/dictionary/english-chinese-simplified/',
+        zHUrl: 'https://dictionary.cambridge.org/dictionary/english-chinese-traditional/',
         init() {
             return this
         },
@@ -57,7 +57,7 @@ function cambridgeDictionary() {
                 transEl.forEach(tEl => {
                     cleanAttr(tEl, ['title', 'class', 'href'])
                     el.querySelectorAll('a[href]').forEach(e => {
-                        if (e.href.includes('dictionary/english-chinese-simplified/')) e.setAttribute('data-search', 'true')
+                        if (e.href.includes('dictionary/english-chinese-traditional/')) e.setAttribute('data-search', 'true')
                         e.removeAttribute('href')
                     })
                     part += tEl.innerHTML
